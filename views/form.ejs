@@ -1,0 +1,7 @@
+<form id="news-form" class="controls" action="/10/news/for/business" method="get">
+  <label>Количество новостей<input id="count" name="count" type="number" min="1" step="1" value="<%= count %>" required></label>
+  <label>Категория<select id="category" name="category"><% for (const c of categories) { %><option value="<%= c.id %>" <%= c.id === selected ? 'selected' : '' %>><%= c.name %></option><% } %></select></label>
+  <button type="submit">Получить новости <span aria-hidden="true">→</span></button>
+</form>
+<p id="category-status" class="muted" role="status">Обновляем категории с сайта Ведомостей…</p>
+<noscript><p>Для работы формы включите JavaScript. Пример прямого запроса: <a href="/10/news/for/politics">10 новостей политики</a>.</p></noscript>

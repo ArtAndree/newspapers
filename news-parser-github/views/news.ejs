@@ -1,0 +1,8 @@
+<%- include('head') %><section class="intro compact"><p class="eyebrow">СВЕЖАЯ ЛЕНТА</p><h1><%= category.name %></h1><p>Запрошено: <%= count %> · Получено: <%= items.length %></p></section>
+<section class="panel"><%- include('form') %></section>
+<% if (warning) { %><p class="notice"><%= warning %></p><% } %>
+<% if (items.length < count) { %><p class="notice">Источник вернул меньше новостей, чем запрошено. Показаны все доступные записи. Без API-ключа rss2json обычно отдаёт до 10 новостей.</p><% } %>
+<h2><%= items.length %> последних новостей в категории «<%= category.name %>»</h2>
+<% if (!items.length) { %><p class="notice">В этой ленте пока нет новостей. Попробуйте другую категорию.</p><% } %>
+<dl class="news-list"><% items.forEach((item, index) => { %><div class="news-item"><dt><span class="number"><%= String(index + 1).padStart(2, '0') %></span><% if (item.link) { %><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= item.title %></a><% } else { %><%= item.title %><% } %></dt><dd><p><%= item.description || 'Описание отсутствует.' %></p><% if (item.date) { %><span class="muted"><%= item.date %> · дата источника</span><% } %></dd></div><% }); %></dl>
+<%- include('footer') %>

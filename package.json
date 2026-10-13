@@ -1,0 +1,19 @@
+{
+  "name": "vedomosti-news-parser",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Учебный HTTP-сервис чтения новостей Ведомостей",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0",
+    "ejs": "3.1.10",
+    "express": "5.1.0"
+  }
+}
